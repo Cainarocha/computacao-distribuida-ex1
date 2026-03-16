@@ -51,3 +51,4 @@ A frequência experimental converge para o valor teórico da fórmula.
 ## Visualização
 
 O script analysis.py gera gráficos da disponibilidade em função de p para diferentes valores de k.
+Os gráficos mostram a relação entre a probabilidade p de um servidor estar disponível e a disponibilidade total do sistema para diferentes valores de k.

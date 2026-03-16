@@ -8,12 +8,11 @@ Matrícula: 2315038
 Nome: Davi Silveira  
 Matrícula: 2310347 
 
-Nome: Maercos André  
+Nome: Marcos André  
 Matrícula: 2310371 
 
 Nome: Pedro Vieira 
-Matrícula: 2315708 
-
+ Matrícula: 2315708 
 
 Universidade de Fortaleza — UNIFOR
 

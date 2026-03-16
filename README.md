@@ -1,5 +1,23 @@
 # Exercícios 1.1 e 1.2 — Computação Distribuída
 
+## Alunos
+
+Nome: Cainã Rocha  
+Matrícula: 2315038  
+
+Nome: Davi Silveira  
+Matrícula: 2310347 
+
+Nome: Maercos André  
+Matrícula: 2310371 
+
+Nome: Pedro Vieira 
+Matrícula: 2315708 
+
+Universidade de Fortaleza — UNIFOR
+
+---
+
 ## Exercício 1.1
 
 Queremos calcular a disponibilidade de um serviço replicado em múltiplos servidores.

@@ -48,6 +48,21 @@ Cada servidor possui:
 
 * probabilidade p de estar disponível
 * probabilidade (1 − p) de falhar
+Queremos calcular a disponibilidade de um serviço replicado em múltiplos servidores.
+O sistema funciona se pelo menos k servidores estiverem disponíveis.
+
+A disponibilidade é dada por:
+
+$$A(n,k,p) = \sum_{i=k}^{n} \binom{n}{i} p^i (1-p)^{n-i}$$
+
+### Definição dos Parâmetros:
+
+* [cite_start]**$n$**: Número de servidores.
+* **$k$**: Mínimo de servidores ativos.
+* **$p$**: Probabilidade de um servidor estar disponível.
+* **$i$**: Variável de iteração representando o número de servidores ativos em cada cenário.
+* **$\binom{n}{i}$**: Coeficiente binomial ($\frac{n!}{i!(n-i)!}$), que representa as combinações possíveis de servidores ativos.
+
 
 A probabilidade de exatamente i servidores estarem disponíveis segue a distribuição binomial:
 
@@ -72,6 +87,13 @@ A(n,n,p) = p^n
 ---
 
 ## Interpretação
+* $k = 1$
+
+* $A = 1 - (1-p)^n$
+
+* $k = n$
+
+* $A = p^n$
 
 * Quanto menor k, maior a disponibilidade
 * Quanto maior k, menor a disponibilidade
@@ -87,10 +109,10 @@ Foram utilizados dois métodos:
 
 Na simulação:
 
-- cada servidor gera um número aleatório
-- se o número ≤ p → servidor disponível
+- cada servidor gera um número $n$, onde $n \in (0, 1)$
+- se $n \leq p$ → servidor disponível
 - contamos quantos servidores estão ativos
-- se pelo menos k estiverem ativos → serviço disponível
+- se pelo menos $k$ estiverem ativos → serviço disponível
 
 A frequência experimental converge para o valor teórico da fórmula.
 
@@ -98,5 +120,8 @@ A frequência experimental converge para o valor teórico da fórmula.
 
 ## Visualização
 
-O script analysis.py gera gráficos da disponibilidade em função de p para diferentes valores de k.
+O script [analysis.py](analysis.py) gera um gráfico da disponibilidade em função de p para diferentes valores de k.
 Os gráficos mostram a relação entre a probabilidade p de um servidor estar disponível e a disponibilidade total do sistema para diferentes valores de k.
+
+Gráfico gerado por [analysis.py](analysis.py):
+![Gráfico de Confiabilidade k-de-n](imagens/Figure_1.png)

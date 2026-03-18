@@ -11,8 +11,8 @@ Matrícula: 2310347
 Nome: Marcos André  
 Matrícula: 2310371 
 
-Nome: Pedro Vieira 
--Matrícula: 2315708 
+Nome: Pedro Vieira
+Matrícula: 2315708 
 
 Universidade de Fortaleza — UNIFOR
 

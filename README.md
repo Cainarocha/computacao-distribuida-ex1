@@ -18,8 +18,36 @@ Universidade de Fortaleza — UNIFOR
 
 ---
 
-## Exercício 1.1
+# Exercício 1.1
 
+## Conceito de Disponibilidade
+
+Disponibilidade é a proporção do tempo em que um sistema permanece em funcionamento:
+
+Disponibilidade = tempo em operação / (tempo em operação + tempo fora de operação)
+
+Em sistemas distribuídos, a disponibilidade pode ser aumentada através da **redundância**, utilizando múltiplos servidores para o mesmo serviço. Assim, mesmo que alguns falhem, o sistema continua operando.
+
+---
+
+## Modelagem do Problema
+
+Considere:
+
+* n = número total de servidores
+* k = número mínimo de servidores necessários
+* p = probabilidade de um servidor estar disponível
+
+Assume-se independência entre os servidores.
+
+---
+
+## Derivação da Fórmula
+
+Cada servidor possui:
+
+* probabilidade p de estar disponível
+* probabilidade (1 − p) de falhar
 Queremos calcular a disponibilidade de um serviço replicado em múltiplos servidores.
 O sistema funciona se pelo menos k servidores estiverem disponíveis.
 
@@ -36,10 +64,29 @@ $$A(n,k,p) = \sum_{i=k}^{n} \binom{n}{i} p^i (1-p)^{n-i}$$
 * **$\binom{n}{i}$**: Coeficiente binomial ($\frac{n!}{i!(n-i)!}$), que representa as combinações possíveis de servidores ativos.
 
 
-Essa fórmula vem da distribuição binomial.
+A probabilidade de exatamente i servidores estarem disponíveis segue a distribuição binomial:
 
-Casos extremos:
+P(i) = C(n,i) · p^i · (1-p)^(n-i)
 
+O sistema funciona se pelo menos k servidores estiverem ativos:
+
+A(n,k,p) = Σ(i=k até n) C(n,i) · p^i · (1-p)^(n-i)
+
+---
+
+## Casos Extremos
+
+### Consulta (k = 1)
+
+A(n,1,p) = 1 - (1 - p)^n
+
+### Atualização (k = n)
+
+A(n,n,p) = p^n
+
+---
+
+## Interpretação
 * $k = 1$
 
 * $A = 1 - (1-p)^n$
@@ -48,6 +95,9 @@ Casos extremos:
 
 * $A = p^n$
 
+* Quanto menor k, maior a disponibilidade
+* Quanto maior k, menor a disponibilidade
+* Existe um trade-off entre disponibilidade e consistência
 ---
 
 ## Exercício 1.2
